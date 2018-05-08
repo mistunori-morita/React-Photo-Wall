@@ -30,7 +30,11 @@ class Main extends Component {
  removePhoto(postRemoved){
   console.log(postRemoved.description);
   this.setState((state) => ({
-    posts: state.posts.filter(post => post !== postRemoved)
+    posts: state.posts.filter(post => {
+      console.log(post, postRemoved)
+      //fileterで一致していないものだけを返したい == と　=== を使い分けれるようにしておく
+      return !(post === postRemoved)
+    })
   }))
  }
 
