@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Title from './Title'
 import photowall from './PhotoWall'
 import PhotoWall from './PhotoWall';
-
+import AddPhoto from './AddPhoto'
 
 class Main extends Component {
   constructor(){
@@ -22,13 +22,17 @@ class Main extends Component {
        id: "2",
        description: "On a vacation!",
        imageLink: "https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2017/08/24/104670887-VacationExplainsTHUMBWEB.1910x1000.jpg"
-     }]
+     }],
+     //条件付きレンダリングの判定のためのstate定義
+     screen: 'photos' //photos, addPhoto
     }
-    this.removePhoto = this.removePhoto.bind(this)
+    //これをする理由はpropsで渡した時に参照できない そのため、navigate関数、removePhotoもbind(this)をしている
+    // this.removePhoto = this.removePhoto.bind(this)
+    // this.navigate = this.navigate.bind(this)
     console.log('constructor');
  }
 
- removePhoto(postRemoved){
+ removePhoto = (postRemoved) => {
   // console.log(postRemoved.description);
   this.setState((state) => ({
     posts: state.posts.filter(post => {
@@ -39,22 +43,41 @@ class Main extends Component {
   }))
  }
 
-
- componentDidMount(){
+ navigate = () => {
+   this.setState({
+     screen: 'addPhoto'
+   })
  }
 
- componentDidUpdate(prevProps,prevState){
-   alert('re-render')
-   console.log(prevState.posts);
-   console.log(this.state);
- }
+//  componentDidMount(){
+//  }
+
+//  componentDidUpdate(prevProps,prevState){
+//    alert('re-render')
+//    console.log(prevState.posts);
+//    console.log(this.state);
+//  }
 
 
   render() {
     return (
+      //jsxの中で{this.state.screen}　で条件付きレンダリングをしている
       <div>
-        <Title title="photowall" />
-        <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto}/>
+        {
+          this.state.screen === 'photos' && (
+          <div>
+            <Title title="photowall" />
+            <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate}/>
+          </div>
+          )
+        }
+        {
+          this.state.screen === 'addPhoto' &&(
+          <div>
+            <AddPhoto />
+          </div>
+          )
+        }
       </div>
     )
   }
