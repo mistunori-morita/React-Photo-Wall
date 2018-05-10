@@ -1,4 +1,4 @@
-# bind(this)についての細く
+# bind(this)についての補足
 ```js
 class Main extends Component {
   constructor(){
