@@ -24,3 +24,22 @@ class Main extends Component {
    })
  }
 ```
+
+## React-router
+```js
+        <Route exact path="/" render={() => (
+          <div>
+            <Title title="photowall" />
+            <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate}/>
+          </div>
+        )}/>
+        //該当するpathでこうかけるが、コンポーネント単位で呼び出す方が簡単
+        <Route path="/AddPhoto" render={() => (
+          <div>
+            <AddPhoto />
+          </div>
+
+
+//こうした方がスッキリできる
+ <Route path="/AddPhoto" component={AddPhoto} />
+```
