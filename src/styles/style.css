@@ -66,12 +66,15 @@ p{
 .addIcon{
   margin: 30px auto;
   padding: 20px;
-  display: flex;
+  display: block;
+  width: 10px;
+  height: 10px;
   background: url(https://image.flaticon.com/icons/svg/60/60740.svg);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   border: none;
   outline: none;
+  text-indent: -9999px;
 }
 
 .addIcon:hover{
