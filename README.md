@@ -43,3 +43,18 @@ class Main extends Component {
 //こうした方がスッキリできる
  <Route path="/AddPhoto" component={AddPhoto} />
 ```
+
+
+### concatについて
+`https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/concat`
+
+- concat() メソッドは、配列に他の配列や値をつないでできた新しい配列を返します。
+
+```js
+var array1 = ['a', 'b', 'c'];
+var array2 = ['d', 'e', 'f'];
+
+console.log(array1.concat(array2));
+// expected output: Array ["a", "b", "c", "d", "e", "f"]
+```
+- メモ
