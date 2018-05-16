@@ -19,7 +19,7 @@ class AddPhoto extends Component{
     const imageLink = e.target.elements.Link.value
     const description = e.target.elements.Description.value
     const post = {
-       id: "0",
+       id: Number(new Date()),
        description: description,
        imageLink: imageLink
     }
