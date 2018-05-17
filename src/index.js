@@ -9,6 +9,7 @@ import rooteReducer from './redux/reducer'
 
 const store = createStore(rooteReducer)
 
+
 ReactDOM.render(
   <BrowserRouter>
     <Main/>
