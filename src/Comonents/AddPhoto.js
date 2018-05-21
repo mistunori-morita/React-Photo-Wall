@@ -25,14 +25,14 @@ class AddPhoto extends Component{
     }
 
     if(description && imageLink) {
-      this.props.onAddPhoto(post)
+      this.props.addPost(post)
+      this.props.onHistory.push('/')
     }
   }
 
   render(){
     return(
       <div>
-        <h1> this is the page where we will add photos</h1>
          <div className="form">
           <form onSubmit={this.handleSubmit}>
           { /* ここで書いたname属性 name="Link"がhandleSubmit(e)で取れる*/ }
