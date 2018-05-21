@@ -58,3 +58,15 @@ console.log(array1.concat(array2));
 // expected output: Array ["a", "b", "c", "d", "e", "f"]
 ```
 - メモ
+
+
+### Redux dev Tools
+- https://github.com/zalmoxisus/redux-devtools-extension#usage
+
+- 1.1 Basic store
+```js
+//具体的例
+const store = createStore(rooteReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
+
+//これでRedux-devtoolsが読み込まれる
+```
