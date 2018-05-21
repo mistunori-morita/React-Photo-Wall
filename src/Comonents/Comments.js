@@ -9,11 +9,12 @@ class Comments extends Component{
   handleSubmit(e){
     e.preventDefault()
     const comment = e.target.elements.comment.value
-    this.props.addComment(comment)
+    this.props.addComment(comment, this.props.id)
   }
 
 
   render(){
+    console.log(this.props.comments)
     return(
       <div className="comment">
       {
