@@ -15,6 +15,12 @@ function Photo(props){
               props.removePost(props.index)
               props.history.push('/')
             }}>Remove</button>
+            <Link className="comment-counter" to={`single/${post.id}`}>
+              <div className="coment-count">
+                {props.comments[post.id] ? props.comments[post.id].length : 0}
+              </div>
+              < div className = "speech-bubble" > < /div>
+            </Link>
           </div>
         </figcaption>
       </figure>
