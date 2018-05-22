@@ -1,5 +1,16 @@
-//remove
+import {database} from '../database/config'
 
+export function startAddingPost(post){
+  return (dispatch) => {
+    return database.ref('posts').update({[post.id]: post}).then(() =>{
+      dispatch(addPost(post))
+    }).catch((error) =>{
+      console.log(error)
+    })
+  }
+}
+
+//remove
 export function removePost(index){
   return {
     type: 'REMOVE_POST',

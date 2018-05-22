@@ -70,3 +70,9 @@ const store = createStore(rooteReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && w
 
 //これでRedux-devtoolsが読み込まれる
 ```
+
+
+### firebase設定
+- npm install firebase
+- firebaseダッシュボード、新規プロジェクト作成、ルールの変更（全てtrue）、ウェブアプリの追加
+- clud FireStoreと間違えないように注意（リアルタイムデータベースポチッとおしたあと）
