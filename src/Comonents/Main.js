@@ -13,6 +13,12 @@ class Main extends Component {
     super()
    }
 
+   state = {
+     loading: false
+   }
+
+
+
    componentDidMount(){
      this.props.startLoadingPost()
      this.props.startLoadingcomments()
@@ -36,7 +42,7 @@ class Main extends Component {
           )}/>
 
           <Route path="/single/:id" render={(params) => (
-            <Single {...this.props}  {...params} />
+            <Single  loading={this.state.loading} {...this.props}  {...params} />
           )}/>
       </div>
     )
