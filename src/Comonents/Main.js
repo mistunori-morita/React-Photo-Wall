@@ -9,23 +9,20 @@ import {removePost} from '../redux/actions'
 import Single from './Single'
 
 class Main extends Component {
-  constructor(){
-    super()
-   }
-
    state = {
      loading: false
    }
 
-
-
    componentDidMount(){
-     this.props.startLoadingPost()
+     this.props.startLoadingPost().then(() => {
+       this.setState({
+         loading: false
+       })
+     })
      this.props.startLoadingcomments()
    }
 
   render() {
-    
     return (
       <div>
         <h1>
@@ -34,7 +31,6 @@ class Main extends Component {
         <Route exact path="/" render={() => (
           <div>
             <PhotoWall {...this.props} />
-            {/* <PhotoWall posts={this.state.posts} onRemovePhoto={this.removePhoto} onNavigate={this.navigate}/> */}
           </div>
         )}/>
           <Route path="/AddPhoto" render={({history}) => (
@@ -42,7 +38,7 @@ class Main extends Component {
           )}/>
 
           <Route path="/single/:id" render={(params) => (
-            <Single  loading={this.state.loading} {...this.props}  {...params} />
+            <Single loading={this.state.loading} {...this.props}  {...params} />
           )}/>
       </div>
     )
